@@ -2,6 +2,6 @@ import { User } from "./user.model";
 
 export interface Responsavel {
     id?: number
-    user: User
+    usuario: User
     foto?: string
 }

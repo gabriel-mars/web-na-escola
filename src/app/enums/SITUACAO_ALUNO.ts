@@ -1,4 +1,4 @@
-export enum JUSTIFICATIVA_ALUNO {
+export enum SITUACAO_ALUNO {
     REGULAR = "Regular",
     DOCUMENTACAO_PENDENTE = "Documentação pendente",
     SUSPENSO = "Suspenso",

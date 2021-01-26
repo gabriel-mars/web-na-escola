@@ -1,3 +1,5 @@
+import { TIPO_USUARIO } from "../enums/TIPO_USUARIO";
+
 export interface User {
     id?: number
     nome: string
@@ -9,5 +11,5 @@ export interface User {
     municipio?: string
     uf?: string
     cep?: string
-    tipoUsuario: string
+    tipoUsuario: TIPO_USUARIO
 }

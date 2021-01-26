@@ -1,4 +1,4 @@
-import { JUSTIFICATIVA_ALUNO } from "../enums/JUSTIFICATIVA_ALUNO";
+import { SITUACAO_ALUNO } from "../enums/SITUACAO_ALUNO";
 import { Escola } from "./escola.model";
 import { Responsavel } from "./responsavel.model";
 
@@ -10,7 +10,8 @@ export interface Aluno {
     codigoGeradoEscola: string
     nomeMae: string
     nomePai?: string
-    justificativa?: JUSTIFICATIVA_ALUNO
+    situacao?: SITUACAO_ALUNO
     responsavel?: Responsavel
     escola: Escola,
+    justificativa: string
 }
