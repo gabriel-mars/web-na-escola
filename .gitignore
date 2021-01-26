@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Arquivos não necessários
+.browserslistrc
+.editorconfig
