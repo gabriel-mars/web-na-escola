@@ -15,6 +15,7 @@ import { ClasseComponent } from './classe/classe.component';
 import { EventoComponent } from './evento/evento.component';
 import { RequisicaoComponent } from './requisicao/requisicao.component';
 import { AvisoComponent } from './aviso/aviso.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AvisoComponent } from './aviso/aviso.component';
     ClasseComponent,
     EventoComponent,
     RequisicaoComponent,
-    AvisoComponent
+    AvisoComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
