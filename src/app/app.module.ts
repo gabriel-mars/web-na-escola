@@ -16,6 +16,9 @@ import { EventoComponent } from './evento/evento.component';
 import { RequisicaoComponent } from './requisicao/requisicao.component';
 import { AvisoComponent } from './aviso/aviso.component';
 import { UserComponent } from './user/user.component';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
