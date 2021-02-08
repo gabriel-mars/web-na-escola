@@ -19,6 +19,9 @@ import { UserComponent } from './user/user.component';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { CadastroEscolaComponent } from './views/cadastro-escola/cadastro-escola.component';
+import { LoginComponent } from './views/login/login.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { MatButtonModule } from '@angular/material/button';
     EventoComponent,
     RequisicaoComponent,
     AvisoComponent,
-    UserComponent
+    UserComponent,
+    CadastroEscolaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     MatCardModule,
     FlexLayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

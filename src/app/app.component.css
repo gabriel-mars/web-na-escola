@@ -384,3 +384,11 @@ footer{
   background-color: #c2b6a0;
   color: #fff;
 }
+
+.card-footer {
+  width: 50%;
+  height: 100%;
+  border-color: #fff;
+  background-color: #c2b6a0;
+  color: #fff;
+}

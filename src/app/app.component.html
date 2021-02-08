@@ -83,21 +83,24 @@
 </section>
 
 <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-        <!-- Footer Location-->
-        <div class="col-lg-6 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Onde estamos?</h4>
-            <p class="lead mb-0">Santa Rita do Sapucaí/MG<br />Brasil</p>
-        </div>
-        <!-- Footer Social Icons-->
-        <div class="col-lg-6 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Links rápidos</h4>
-            
-        </div>
-    </div>
-  </div>
+<footer class="space" fxLayout="row" fxLayout.xs="column">
+  <!-- Footer Location-->
+  <mat-card class="card-footer">
+    <mat-card-header>
+      <mat-card-title class="title-card">Onde estamos?</mat-card-title>
+      <mat-card-subtitle>Santa Rita do Sapucaí/MG<br />Brasil.</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="card-footer">
+    <mat-card-header>
+      <mat-card-title class="title-card">Links rápidos:</mat-card-title>
+      <mat-card-subtitle>
+        <button mat-icon-button aria-label="Instagram">
+          <fa-icon [icon]="['fab', 'fa-instagram']"></fa-icon>
+        </button>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
 </footer>
 
 <router-outlet></router-outlet>
