@@ -1,1 +1,35 @@
-<p>login works!</p>
+<mat-card class="card-login">
+    <mat-card-header>
+        <mat-card-title>Autenticação - NaEscola</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form class="form-login">
+            <p>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="E-mail" [(ngModel)] = "user.email" [(formControl)]="emailFormControl" name="email"/>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Digite um e-mail válido
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email é <strong>obrigatório</strong>
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Senha" [(ngModel)] = "user.senha" [type]="hide ? 'password' : 'text'" name="senha" required/>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </p>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <p>
+            <button mat-button (click)="login()">Entrar</button>
+            <mat-spinner *ngIf="resourcesLoaded === false" diameter="40"></mat-spinner>
+        </p>
+    </mat-card-actions>
+</mat-card>
