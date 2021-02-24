@@ -30,6 +30,8 @@ import { AvisoComponent } from './aviso/aviso.component';
 import { UserComponent } from './user/user.component';
 import { CadastroEscolaComponent } from './views/cadastro-escola/cadastro-escola.component';
 import { LoginComponent } from './views/login/login.component';
+import { HeaderComponent } from './views/header/header.component';
+import { SidebarComponent } from './views/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { LoginComponent } from './views/login/login.component';
     AvisoComponent,
     UserComponent,
     CadastroEscolaComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
