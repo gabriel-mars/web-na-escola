@@ -1,20 +1,28 @@
 import { HeaderService } from './../../services/header.service';
 import { User } from './../../models/user.model';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { delay, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterViewInit {
 
   user: User;
 
-  constructor(private headerService: HeaderService) { }
+  constructor(
+    private headerService: HeaderService,
+    private cd: ChangeDetectorRef) {
+    
+  }
 
-  ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('usuario'));
+  ngOnInit(): void { }
+
+  ngAfterViewInit() {
+    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    this.cd.detectChanges();
   }
 
   get title(): string {
@@ -30,7 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.clear();
+    sessionStorage.clear();
     window.location.reload();
   }
 }

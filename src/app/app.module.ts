@@ -29,23 +29,27 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 
-import { EscolaComponent } from './escola/escola.component';
-import { ProfessorComponent } from './professor/professor.component';
-import { AlunoComponent } from './aluno/aluno.component';
-import { ResponsavelComponent } from './responsavel/responsavel.component';
-import { ComponenteCurricularComponent } from './componente-curricular/componente-curricular.component';
-import { BoletimComponent } from './boletim/boletim.component';
-import { ChamadaComponent } from './chamada/chamada.component';
-import { ClasseComponent } from './classe/classe.component';
-import { EventoComponent } from './evento/evento.component';
-import { RequisicaoComponent } from './requisicao/requisicao.component';
-import { AvisoComponent } from './aviso/aviso.component';
-import { UserComponent } from './user/user.component';
+import { EscolaComponent } from './componentes/escola/escola.component';
+import { ProfessorComponent } from './componentes/professor/professor.component';
+import { AlunoComponent } from './componentes/aluno/aluno.component';
+import { ResponsavelComponent } from './componentes/responsavel/responsavel.component';
+import { ComponenteCurricularComponent } from './componentes/componente-curricular/componente-curricular.component';
+import { BoletimComponent } from './componentes/boletim/boletim.component';
+import { ChamadaComponent } from './componentes/chamada/chamada.component';
+import { ClasseComponent } from './componentes/classe/classe.component';
+import { EventoComponent } from './componentes/evento/evento.component';
+import { RequisicaoComponent } from './componentes/requisicao/requisicao.component';
+import { AvisoComponent } from './componentes/aviso/aviso.component';
+import { UserComponent } from './componentes/user/user.component';
 import { CadastroEscolaComponent } from './views/cadastro-escola/cadastro-escola.component';
 import { LoginComponent } from './views/login/login.component';
 import { HeaderComponent } from './views/header/header.component';
 import { SidebarComponent } from './views/sidebar/sidebar.component';
 import { HomeComponent } from './views/template/home/home.component';
+import { ReadComponent } from './componentes/escola/read/read.component';
+import { CreateComponent } from './componentes/escola/create/create.component';
+import { UpdateComponent } from './componentes/escola/update/update.component';
+import { DeleteComponent } from './componentes/escola/delete/delete.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -68,7 +72,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     LoginComponent,
     HeaderComponent,
     SidebarComponent,
-    HomeComponent
+    HomeComponent,
+    ReadComponent,
+    CreateComponent,
+    UpdateComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

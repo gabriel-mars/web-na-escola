@@ -1,3 +1,7 @@
+import { DeleteComponent } from './componentes/escola/delete/delete.component';
+import { UpdateComponent } from './componentes/escola/update/update.component';
+import { CreateComponent } from './componentes/escola/create/create.component';
+import { EscolaComponent } from './componentes/escola/escola.component';
 import { HomeComponent } from './views/template/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +15,22 @@ const routes: Routes = [
   {
     path: "home",
     component: HomeComponent
+  },
+  {
+    path: "escola",
+    component: EscolaComponent
+  },
+  {
+    path: "escola/create",
+    component: CreateComponent
+  },
+  {
+    path: "escola/update",
+    component: UpdateComponent
+  },
+  {
+    path: "escola/delete",
+    component: DeleteComponent
   }
 ];
 

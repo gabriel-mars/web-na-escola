@@ -11,5 +11,6 @@ export interface User {
     municipio?: string
     uf?: string
     cep?: string
+    hash?: string
     tipoUsuario: TIPO_USUARIO
 }

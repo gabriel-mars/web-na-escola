@@ -52,12 +52,12 @@ export class LoginService {
     this.toastService.showMessage('Autenticado!', true);
 
     usuario.senha = '';
-    localStorage.setItem('usuario', JSON.stringify(usuario));
+    sessionStorage.setItem('usuario', JSON.stringify(usuario));
     this.router.navigate(['/home']);
   }
 
   getPermissaoUsuario() {
-    this.aux = JSON.parse(localStorage.getItem('usuario'));
+    this.aux = JSON.parse(sessionStorage.getItem('usuario'));
 
     // if(this.aux.isAdm == true) {
     //   this.permissaoUsuario.next(true);
