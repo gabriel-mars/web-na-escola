@@ -1,1 +1,38 @@
-<p>create works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Nova Escola</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form>
+            <mat-form-field class="form-fonte">
+                <mat-label>Código MEC</mat-label>
+                <input matInput placeholder="Título" [(ngModel)] = "fonte.titulo" name="titulo"/>
+            </mat-form-field>
+            <table class="form-fonte" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-fonte">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="2020" [(ngModel)] = "fonte.anoPublicacao" name="anoPublicacao">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-fonte">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput placeholder="Edição" [(ngModel)] = "fonte.edicao" name="edicao">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+            <mat-form-field class="form-fonte">
+                <mat-label>Comentário</mat-label>
+                <input matInput placeholder="Comentário" [(ngModel)] = "fonte.comentario" name="comentario"/>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="createEscola()" class="btn-update">Salvar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>
