@@ -45,6 +45,7 @@ import { CadastroEscolaComponent } from './views/cadastro-escola/cadastro-escola
 import { LoginComponent } from './views/login/login.component';
 import { HeaderComponent } from './views/header/header.component';
 import { SidebarComponent } from './views/sidebar/sidebar.component';
+import { HomeComponent } from './views/template/home/home.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -66,7 +67,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     CadastroEscolaComponent,
     LoginComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

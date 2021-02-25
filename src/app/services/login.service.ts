@@ -12,7 +12,7 @@ import { ToastService } from './toast.service';
 })
 export class LoginService {
   
-  baseUrl = "http://localhost:8080/user";
+  baseUrl = "http://localhost:8080/api-na-escola/user";
   headers = new HttpHeaders()
     .set("Content-Type", "application/json");
 
