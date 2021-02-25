@@ -1,1 +1,23 @@
-<p>header works!</p>
+<mat-toolbar class="header mat-elevation-z1">
+    <span class="item flex-item-1 title-group">
+        <a routerLink="{{ routeUrl }}">
+            <i class="material-icons">
+                {{ icon }}
+            </i>
+            {{ title }}
+        </a>
+    </span>
+    <span class="item flex-item-1 "></span>
+    <span class="item flex-item-1 ">
+        <span class="user-name">
+            {{ user.nome }}
+        </span>
+        <button mat-icon-button aria-label="Menu" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <a mat-menu-item routerLink="/perfil">Perfil</a>
+            <button mat-menu-item (click)="logout()">Sair</button>
+        </mat-menu>
+    </span>
+</mat-toolbar>

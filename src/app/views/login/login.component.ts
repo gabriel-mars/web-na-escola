@@ -50,5 +50,6 @@ export class LoginComponent implements OnInit {
       this.loginService.fazerLogin(newUser);
       this.resourcesLoaded = true;
     });
+    this.resourcesLoaded = false;
   }
 }
