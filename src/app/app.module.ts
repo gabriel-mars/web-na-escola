@@ -49,6 +49,10 @@ import { ReadComponent } from './componentes/escola/read/read.component';
 import { CreateComponent } from './componentes/escola/create/create.component';
 import { UpdateComponent } from './componentes/escola/update/update.component';
 import { DeleteComponent } from './componentes/escola/delete/delete.component';
+import { ProfessorDeleteComponent } from './componentes/professor/professorDelete/professorDelete.component';
+import { ProfessorUpdateComponent } from './componentes/professor/professorUpdate/professorUpdate.component';
+import { ProfessorCreateComponent } from './componentes/professor/professorCreate/professorCreate.component';
+import { ProfessorReadComponent } from './componentes/professor/professorRead/professorRead.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -74,7 +78,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ReadComponent,
     CreateComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    ProfessorDeleteComponent,
+    ProfessorUpdateComponent,
+    ProfessorCreateComponent,
+    ProfessorReadComponent
   ],
   imports: [
     BrowserModule,

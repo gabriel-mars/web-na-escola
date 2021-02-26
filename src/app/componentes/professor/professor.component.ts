@@ -1,3 +1,5 @@
+import { HeaderService } from './../../services/header.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfessorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private headerService: HeaderService
+  ) {
+    headerService.headerData = {
+      title: 'Professor',
+      icon: 'badge',
+      routeUrl: '/professor'
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  navigateToProfessorCreate(): void {
+    this.router.navigate(['/professor/create']);
+  }
 }

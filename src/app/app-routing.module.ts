@@ -1,3 +1,7 @@
+import { ProfessorDeleteComponent } from './componentes/professor/professorDelete/professorDelete.component';
+import { ProfessorUpdateComponent } from './componentes/professor/professorUpdate/professorUpdate.component';
+import { ProfessorCreateComponent } from './componentes/professor/professorCreate/professorCreate.component';
+import { ProfessorComponent } from './componentes/professor/professor.component';
 import { DeleteComponent } from './componentes/escola/delete/delete.component';
 import { UpdateComponent } from './componentes/escola/update/update.component';
 import { CreateComponent } from './componentes/escola/create/create.component';
@@ -31,6 +35,22 @@ const routes: Routes = [
   {
     path: "escola/delete/:id",
     component: DeleteComponent
+  },
+  {
+    path: "professor",
+    component: ProfessorComponent
+  },
+  {
+    path: "professor/create",
+    component: ProfessorCreateComponent
+  },
+  {
+    path: "professor/update/:id",
+    component: ProfessorUpdateComponent
+  },
+  {
+    path: "professor/delete/:id",
+    component: ProfessorDeleteComponent
   }
 ];
 
