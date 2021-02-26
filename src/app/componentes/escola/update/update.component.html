@@ -1,1 +1,82 @@
-<p>update works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Atualização Escola</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form>
+            <mat-form-field class="form-escola">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Nome" [(ngModel)] = "escola.nome" name="nome"/>
+            </mat-form-field>
+            <table class="form-escola" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>Código MEC/INEP</mat-label>
+                            <input type="number" matInput placeholder="Código" [(ngModel)] = "escola.codigoMec" name="codigoMec" maxlength="10">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput placeholder="Telefone" [(ngModel)] = "escola.telefone" mask="(00) 00000-0000" name="telefone">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="exemplo@mail.com" [(ngModel)] = "escola.email" [(formControl)]="emailFormControl" name="email"/>
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Digite um e-mail válido
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Email é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>CEP</mat-label>
+                            <input matInput placeholder="CEP" [(ngModel)] = "escola.cep" mask="00.000-000" name="cep">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>Logradouro</mat-label>
+                            <input matInput placeholder="Endereço" [(ngModel)] = "escola.endereco" name="endereco">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>Município</mat-label>
+                            <input matInput placeholder="Município" [(ngModel)] = "escola.municipio" name="municipio">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>UF</mat-label>
+                            <input matInput placeholder="UF" [(ngModel)] = "escola.uf" name="uf" maxlength="2">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-escola">
+                            <mat-label>Logo</mat-label>
+                            <input disabled matInput placeholder="Logo" [(ngModel)] = "escola.logo" name="logo">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="updateEscola()" class="btn-update">Atualizar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,1 +1,25 @@
-<p>delete works!</p>
+<mat-card>
+    <mat-card-title>Remover Escola</mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [value] = "escola?.nome" name="nome" disabled/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Código MEC/INEP" [value] = "escola?.codigoMec" name="codigoMec" disabled/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="E-mail" [value] = "escola?.email" name="email" disabled/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Telefone" [value] = "escola?.telefone" name="telefone" disabled/>
+        </mat-form-field>
+    </form>
+</mat-card>
+
+<button mat-raised-button (click)="deleteEscola()" color="warn">Remover</button>
+
+<button mat-raised-button (click)="cancel()">Cancelar</button> 

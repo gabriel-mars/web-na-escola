@@ -20,39 +20,43 @@ export class EscolaService {
     private toastService: ToastService
   ) { }
 
-  cadastrarEscola(fonte: Escola, hash: string): Observable<Escola> {
+  cadastrarEscola(escola: Escola, hash: string): Observable<Escola> {
+    this.params = new HttpParams();
     this.params = this.params.set('hash', hash);
-    return this.http.post<Escola>(this.baseUrl, fonte, {headers: this.headers, params: this.params}).pipe(
+    return this.http.post<Escola>(this.baseUrl, escola, {headers: this.headers, params: this.params}).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
   read(hash: string): Observable<Escola[]> {
+    this.params = new HttpParams();
     this.params = this.params.set('hash', hash);
     const url = `${this.baseUrl}/user`;
     return this.http.get<Escola[]>(url, {headers: this.headers, params: this.params});
   }
 
   readById(id: number, hash: string): Observable<Escola> {
+    this.params = new HttpParams();
     this.params = this.params.set('hash', hash);
     const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Escola>(url, {headers: this.headers}).pipe(
+    return this.http.get<Escola>(url, {headers: this.headers, params: this.params}).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
   update(escola: Escola, hash: string): Observable<Escola> {
+    this.params = new HttpParams();
     this.params = this.params.set('hash', hash);
-    const url = `${this.baseUrl}/${escola.id}`;
-    return this.http.put<Escola>(url, escola, {headers: this.headers, params: this.params}).pipe(
+    return this.http.put<Escola>(this.baseUrl, escola, {headers: this.headers, params: this.params}).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
   delete(id: number, hash: string): Observable<Boolean> {
+    this.params = new HttpParams();
     this.params = this.params.set('hash', hash);
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Escola>(url, {headers: this.headers, params: this.params}).pipe(

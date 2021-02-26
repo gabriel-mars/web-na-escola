@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { Escola } from './../../../models/escola.model';
 import { EscolaService } from './../../../services/escola.service';
@@ -21,6 +22,11 @@ export class CreateComponent implements OnInit {
 
   user: User;
   formsOk: Boolean;
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
   constructor(
     private router: Router,

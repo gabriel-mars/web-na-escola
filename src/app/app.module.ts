@@ -41,7 +41,6 @@ import { EventoComponent } from './componentes/evento/evento.component';
 import { RequisicaoComponent } from './componentes/requisicao/requisicao.component';
 import { AvisoComponent } from './componentes/aviso/aviso.component';
 import { UserComponent } from './componentes/user/user.component';
-import { CadastroEscolaComponent } from './views/cadastro-escola/cadastro-escola.component';
 import { LoginComponent } from './views/login/login.component';
 import { HeaderComponent } from './views/header/header.component';
 import { SidebarComponent } from './views/sidebar/sidebar.component';
@@ -68,7 +67,6 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     RequisicaoComponent,
     AvisoComponent,
     UserComponent,
-    CadastroEscolaComponent,
     LoginComponent,
     HeaderComponent,
     SidebarComponent,
