@@ -1,3 +1,52 @@
 <button mat-raised-button (click)="navigateToProfessorCreate()" color="primary">
     Cadastre um professor
 </button>
+
+<p class="select-escola">
+    <mat-form-field>
+        <mat-label>Selecione a escola</mat-label>
+        <mat-select [(ngModel)] = "escolaAux" (ngModelChange)="buscarProfessores()" name="escola" required>
+          <mat-option *ngFor="let es of escolas" [value]="es">{{ es.nome }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</p>
+
+<br />
+
+<div class="mat-elevation-z4">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- Nome Column -->
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let row">{{ row.usuario.nome }}</td>
+        </ng-container>
+
+        <!-- E-mail Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>E-mail</th>
+            <td mat-cell *matCellDef="let row">{{ row.usuario.email }}</td>
+        </ng-container>
+
+        <!-- Acões Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let row">
+                <a routerLink="/professor/update/{{ row.id }}" class="edit">
+                    <i class="material-icons">
+                        edit
+                    </i>
+                </a>
+                <a routerLink="/professor/delete/{{ row.id }}" class="delete">
+                    <i class="material-icons">
+                        delete
+                    </i>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

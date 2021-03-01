@@ -17,7 +17,7 @@
                         <mat-form-field class="form-professor">
                             <mat-label>Escola</mat-label>
                             <mat-select [(ngModel)] = "escolaAux" name="escola" required>
-                              <mat-option *ngFor="let es of escolas" [value]="es.nome">{{ es.nome }}</mat-option>
+                              <mat-option *ngFor="let es of escolas" [value]="es">{{ es.nome }}</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </td>

@@ -1,3 +1,4 @@
+import { Escola } from './../models/escola.model';
 import { catchError, map } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { Professor } from './../models/professor.model';
@@ -33,6 +34,13 @@ export class ProfessorService {
     this.params = new HttpParams();
     this.params = this.params.set('hash', hash);
     const url = `${this.baseUrl}/escola`;
+    return this.http.get<Professor[]>(url, {headers: this.headers, params: this.params});
+  }
+
+  readByEscola(hash: string, escola: Escola): Observable<Professor[]> {
+    this.params = new HttpParams();
+    this.params = this.params.set('hash', hash);
+    const url = `${this.baseUrl}/escola/${escola.id}`;
     return this.http.get<Professor[]>(url, {headers: this.headers, params: this.params});
   }
 
