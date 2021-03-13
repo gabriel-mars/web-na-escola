@@ -1,9 +1,11 @@
 export enum TIPO_USUARIO {
     ESCOLA = "Escola",
-    PROFESSOR = "Professor (a)",
-    SECRETARIA = "Secretário (a)",
-    PEDAGOGA = "Pedagogo (a)",
+    PROFESSOR = "Professor(a)",
+    SECRETARIA = "Secretário(a)",
+    PEDAGOGA = "Pedagogo(a)",
     ASSISTENTE = "Assistente",
-    SUPERVISOR = "Supervisor (a)",
-    ORIENTADOR = "Orientador (a)"
+    SUPERVISOR = "Supervisor(a)",
+    ORIENTADOR = "Orientador(a)",
+    ALUNO = "Aluno(a)",
+    RESPONSAVEL = "Responsável"
 }

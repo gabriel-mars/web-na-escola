@@ -67,10 +67,10 @@ export class ProfessorCreateComponent implements OnInit {
   }
 
   createProfessor(): void {
+    this.professor.usuario = this.userAux;
     this.formsOk = this.validateFields();
 
     if(this.formsOk) {
-      this.professor.usuario = this.userAux;
       this.professor.usuario.tipoUsuario = TIPO_USUARIO.PROFESSOR;
       this.professor.escola = this.escolaAux;
 

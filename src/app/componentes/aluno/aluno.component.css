@@ -1,0 +1,26 @@
+button {
+    margin-bottom: 15px;
+    background-color: #2AB393 !important;
+}
+
+.select-escola {
+    width: 20%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+table {
+    width: 100%; 
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+.edit > i {
+    color: #d9cd26;
+}
+
+.delete > i {
+    color: #e35e6b;
+}

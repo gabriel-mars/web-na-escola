@@ -1,0 +1,163 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Novo Aluno</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form>
+            <table class="form-aluno" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Nome</mat-label>
+                            <input type="text" matInput placeholder="Nome" [(ngModel)] = "userAux.nome" name="nome">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Escola</mat-label>
+                            <mat-select [(ngModel)] = "escolaAux" name="escola" required>
+                              <mat-option *ngFor="let es of escolas" [value]="es">{{ es.nome }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Nome Mãe</mat-label>
+                            <input type="text" matInput placeholder="Mãe" [(ngModel)] = "aluno.nomeMae" name="nomeMae">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Data Nascimento</mat-label>
+                            <input matInput [matDatepicker]="picker" [(ngModel)] = "aluno.dataNascimento" name="dataNascimento">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>CPF</mat-label>
+                            <input matInput placeholder="CPF" [(ngModel)] = "userAux.cpf" mask="000.000.000-00" name="cpf">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-aluno" appearance="fill">
+                            <mat-label>Data da matrícula</mat-label>
+                            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" [(ngModel)] = "aluno.dataMatricula" name="dataMatricula">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput placeholder="Telefone" [(ngModel)] = "userAux.telefone" mask="(00) 00000-0000" name="telefone">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Endereço</mat-label>
+                            <input matInput placeholder="Endereço" [(ngModel)] = "userAux.endereco" name="endereco">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>Município</mat-label>
+                            <input matInput placeholder="Município" [(ngModel)] = "userAux.municipio" name="municipio">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-aluno">
+                            <mat-label>UF</mat-label>
+                            <input matInput placeholder="UF" [(ngModel)] = "userAux.uf" name="uf" maxlength="2">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<br />
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Responsável</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form>
+            <table class="form-responsavel" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>Nome</mat-label>
+                            <input type="text" matInput placeholder="Nome" [(ngModel)] = "userResponsavel.nome" name="nomeResponsavel">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>CPF</mat-label>
+                            <input matInput placeholder="CPF" [(ngModel)] = "userResponsavel.cpf" mask="000.000.000-00" name="cpfResponsavel">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="exemplo@mail.com" [(ngModel)] = "userResponsavel.email" [(formControl)]="emailFormControl" name="emailResponsavel"/>
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Digite um e-mail válido
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Email é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput placeholder="Telefone" [(ngModel)] = "userResponsavel.telefone" mask="(00) 00000-0000" name="telefoneResponsavel">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>Endereço</mat-label>
+                            <input matInput placeholder="Endereço" [(ngModel)] = "userResponsavel.endereco" name="enderecoResponsavel">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>Município</mat-label>
+                            <input matInput placeholder="Município" [(ngModel)] = "userResponsavel.municipio" name="municipioResponsavel">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-responsavel">
+                            <mat-label>UF</mat-label>
+                            <input matInput placeholder="UF" [(ngModel)] = "userResponsavel.uf" name="ufResponsavel" maxlength="2">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="createAluno()" class="btn-update">Salvar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

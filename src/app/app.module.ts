@@ -52,6 +52,10 @@ import { DeleteComponent } from './componentes/escola/delete/delete.component';
 import { ProfessorDeleteComponent } from './componentes/professor/professorDelete/professorDelete.component';
 import { ProfessorUpdateComponent } from './componentes/professor/professorUpdate/professorUpdate.component';
 import { ProfessorCreateComponent } from './componentes/professor/professorCreate/professorCreate.component';
+import { AlunoCreateComponent } from './componentes/aluno/aluno-create/aluno-create.component';
+import { AlunoReadComponent } from './componentes/aluno/aluno-read/aluno-read.component';
+import { AlunoUpdateComponent } from './componentes/aluno/aluno-update/aluno-update.component';
+import { AlunoDeleteComponent } from './componentes/aluno/aluno-delete/aluno-delete.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -80,7 +84,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     DeleteComponent,
     ProfessorDeleteComponent,
     ProfessorUpdateComponent,
-    ProfessorCreateComponent
+    ProfessorCreateComponent,
+    AlunoCreateComponent,
+    AlunoReadComponent,
+    AlunoUpdateComponent,
+    AlunoDeleteComponent
   ],
   imports: [
     BrowserModule,

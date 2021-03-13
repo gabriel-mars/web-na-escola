@@ -1,3 +1,4 @@
+import { User } from './user.model';
 import { SITUACAO_ALUNO } from "../enums/SITUACAO_ALUNO";
 import { Escola } from "./escola.model";
 import { Responsavel } from "./responsavel.model";
@@ -7,11 +8,12 @@ export interface Aluno {
     dataNascimento: Date
     matricula: string
     dataMatricula: Date
-    codigoGeradoEscola: string
+    codigoGeradoEscola?: string
     nomeMae: string
     nomePai?: string
     situacao?: SITUACAO_ALUNO
-    responsavel?: Responsavel
+    responsavel: Responsavel
     escola: Escola,
-    justificativa: string
+    justificativa?: string,
+    usuario: User
 }

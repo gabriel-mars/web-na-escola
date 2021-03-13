@@ -1,3 +1,7 @@
+import { AlunoDeleteComponent } from './componentes/aluno/aluno-delete/aluno-delete.component';
+import { AlunoUpdateComponent } from './componentes/aluno/aluno-update/aluno-update.component';
+import { AlunoCreateComponent } from './componentes/aluno/aluno-create/aluno-create.component';
+import { AlunoComponent } from './componentes/aluno/aluno.component';
 import { ProfessorDeleteComponent } from './componentes/professor/professorDelete/professorDelete.component';
 import { ProfessorUpdateComponent } from './componentes/professor/professorUpdate/professorUpdate.component';
 import { ProfessorCreateComponent } from './componentes/professor/professorCreate/professorCreate.component';
@@ -51,6 +55,22 @@ const routes: Routes = [
   {
     path: "professor/delete/:id",
     component: ProfessorDeleteComponent
+  },
+  {
+    path: "aluno",
+    component: AlunoComponent
+  },
+  {
+    path: "aluno/create",
+    component: AlunoCreateComponent
+  },
+  {
+    path: "aluno/update/:id",
+    component: AlunoUpdateComponent
+  },
+  {
+    path: "aluno/delete/:id",
+    component: AlunoDeleteComponent
   }
 ];
 

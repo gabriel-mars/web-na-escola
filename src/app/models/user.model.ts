@@ -3,7 +3,7 @@ import { TIPO_USUARIO } from "../enums/TIPO_USUARIO";
 export interface User {
     id?: number
     nome: string
-    email: string
+    email?: string
     cpf: string
     senha?: string
     telefone?: string
