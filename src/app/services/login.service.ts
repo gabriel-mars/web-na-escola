@@ -1,3 +1,4 @@
+import { EncryptService } from './encrypt.service';
 import { Injectable, EventEmitter } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -34,7 +35,8 @@ export class LoginService {
   constructor(
     private router: Router,
     private toastService: ToastService,
-    private http: HttpClient
+    private http: HttpClient,
+    private encryptService: EncryptService
   ) { }
 
   readByEmail(usuario: User): Observable<User> {
@@ -51,13 +53,15 @@ export class LoginService {
 
     this.toastService.showMessage('Autenticado!', true);
 
-    usuario.senha = '';
-    sessionStorage.setItem('usuario', JSON.stringify(usuario));
+    // usuario.senha = '';
+    const json = JSON.stringify(usuario);
+    sessionStorage.setItem('usuario', this.encryptService.encrypt(json));
     this.router.navigate(['/home']);
   }
 
   getPermissaoUsuario() {
-    this.aux = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    this.aux = JSON.parse(this.encryptService.decrypt(obj));
 
     // if(this.aux.isAdm == true) {
     //   this.permissaoUsuario.next(true);

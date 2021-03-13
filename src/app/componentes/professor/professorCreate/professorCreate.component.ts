@@ -1,3 +1,4 @@
+import { EncryptService } from './../../../services/encrypt.service';
 import { Professor } from './../../../models/professor.model';
 import { FormControl, Validators } from '@angular/forms';
 import { ProfessorService } from './../../../services/professor.service';
@@ -51,11 +52,15 @@ export class ProfessorCreateComponent implements OnInit {
     private router: Router,
     private toastService: ToastService,
     private escolaService: EscolaService,
-    private professorService: ProfessorService
+    private professorService: ProfessorService,
+    private encryptService: EncryptService
   ) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    this.user = JSON.parse(this.encryptService.decrypt(obj));
+
     this.escolaService.read(this.user.hash).subscribe(escolas => {
       this.escolas = escolas;
     });
@@ -69,7 +74,6 @@ export class ProfessorCreateComponent implements OnInit {
       this.professor.usuario.tipoUsuario = TIPO_USUARIO.PROFESSOR;
       this.professor.escola = this.escolaAux;
 
-      this.user = JSON.parse(sessionStorage.getItem('usuario'));
       this.professorService.cadastrarProfessor(this.professor, this.user.hash).subscribe(() => {
         this.toastService.showMessage('Professor cadastrado!', true);
         this.router.navigate(['/professor']);

@@ -28,6 +28,7 @@
     "enum-values": "^1.2.1",
     "ngx-mask": "^11.1.4",
     "rxjs": "~6.6.0",
+    "simple-crypto-js": "^3.0.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

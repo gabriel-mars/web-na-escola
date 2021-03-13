@@ -1,3 +1,4 @@
+import { EncryptService } from './../../../services/encrypt.service';
 import { FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { Escola } from './../../../models/escola.model';
@@ -31,7 +32,8 @@ export class CreateComponent implements OnInit {
   constructor(
     private router: Router,
     private toastService: ToastService,
-    private escolaService: EscolaService
+    private escolaService: EscolaService,
+    private encryptService: EncryptService
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +43,10 @@ export class CreateComponent implements OnInit {
     this.formsOk = this.validateFields();
 
     if(this.formsOk) {
-      this.user = JSON.parse(sessionStorage.getItem('usuario'));
+      // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+      const obj = sessionStorage.getItem('usuario');
+      this.user = JSON.parse(this.encryptService.decrypt(obj));
+
       this.escolaService.cadastrarEscola(this.escola, this.user.hash).subscribe(() => {
         this.toastService.showMessage('Escola cadastrada!', true);
         this.router.navigate(['/escola']);

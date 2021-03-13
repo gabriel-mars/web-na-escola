@@ -1,3 +1,4 @@
+import { EncryptService } from './../../services/encrypt.service';
 import { HeaderService } from './../../services/header.service';
 import { User } from './../../models/user.model';
 import { AfterViewInit, Component, OnInit, ChangeDetectorRef } from '@angular/core';
@@ -14,14 +15,16 @@ export class HeaderComponent implements AfterViewInit {
 
   constructor(
     private headerService: HeaderService,
-    private cd: ChangeDetectorRef) {
-    
-  }
+    private cd: ChangeDetectorRef,
+    private encryptService: EncryptService
+    ) { }
 
   ngOnInit(): void { }
 
   ngAfterViewInit() {
-    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    this.user = JSON.parse(this.encryptService.decrypt(obj));
     this.cd.detectChanges();
   }
 

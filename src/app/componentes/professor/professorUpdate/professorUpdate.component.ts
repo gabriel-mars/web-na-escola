@@ -1,3 +1,4 @@
+import { EncryptService } from './../../../services/encrypt.service';
 import { EscolaService } from './../../../services/escola.service';
 import { ProfessorService } from './../../../services/professor.service';
 import { Component, OnInit } from '@angular/core';
@@ -51,12 +52,15 @@ export class ProfessorUpdateComponent implements OnInit {
     private escolaService: EscolaService,
     private professorService: ProfessorService,
     private router: Router, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private encryptService: EncryptService
   ) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    this.user = JSON.parse(this.encryptService.decrypt(obj));
 
     this.professorService.readById(id, this.user.hash).subscribe(professor => {
       this.professor = professor;

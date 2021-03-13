@@ -1,3 +1,4 @@
+import { EncryptService } from './../../../services/encrypt.service';
 import { User } from './../../../models/user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastService } from './../../../services/toast.service';
@@ -19,12 +20,15 @@ export class DeleteComponent implements OnInit {
     private toastService: ToastService,
     private router: Router, 
     private route: ActivatedRoute,
-    private escolaService: EscolaService
+    private escolaService: EscolaService,
+    private encryptService: EncryptService
   ) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    this.user = JSON.parse(this.encryptService.decrypt(obj));
 
     this.escolaService.readById(id, this.user.hash).subscribe(escola => {
       this.escola = escola;

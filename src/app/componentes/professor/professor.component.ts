@@ -1,3 +1,4 @@
+import { EncryptService } from './../../services/encrypt.service';
 import { ProfessorService } from './../../services/professor.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -34,7 +35,8 @@ export class ProfessorComponent implements OnInit {
     private router: Router,
     private escolaService: EscolaService,
     private professorService: ProfessorService,
-    private headerService: HeaderService
+    private headerService: HeaderService,
+    private encryptService: EncryptService
   ) {
     headerService.headerData = {
       title: 'Professor',
@@ -44,7 +46,10 @@ export class ProfessorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    
+    // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    this.user = JSON.parse(this.encryptService.decrypt(obj));
     this.escolaService.read(this.user.hash).subscribe(escolas => {
       this.escolas = escolas;
     });

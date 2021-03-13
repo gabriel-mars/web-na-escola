@@ -1,3 +1,4 @@
+import { EncryptService } from './../../../services/encrypt.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from './../../../services/toast.service';
 import { EscolaService } from './../../../services/escola.service';
@@ -32,12 +33,15 @@ export class UpdateComponent implements OnInit {
     private toastService: ToastService,
     private escolaService: EscolaService,
     private router: Router, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private encryptService: EncryptService
   ) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    // this.user = JSON.parse(sessionStorage.getItem('usuario'));
+    const obj = sessionStorage.getItem('usuario');
+    this.user = JSON.parse(this.encryptService.decrypt(obj));
     
     this.escolaService.readById(id, this.user.hash).subscribe(escola => {
       this.escola = escola;
