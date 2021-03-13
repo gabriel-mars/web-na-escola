@@ -45,10 +45,26 @@ export class UpdateComponent implements OnInit {
   }
 
   updateEscola(): void {
-    this.escolaService.update(this.escola, this.user.hash).subscribe(() => {
-      this.toastService.showMessage('Escola atualizada!', true);
-      this.router.navigate(['/escola']);
-    });
+    this.formsOk = this.validateFields();
+
+    if(this.formsOk){
+      this.escolaService.update(this.escola, this.user.hash).subscribe(() => {
+        this.toastService.showMessage('Escola atualizada!', true);
+        this.router.navigate(['/escola']);
+      });
+    } else {
+      this.toastService.showMessage('Preencha todos os campos.', false);
+    }
+  }
+
+  validateFields(): Boolean {
+    if(this.escola.nome === null || this.escola.nome == null ||
+      this.escola.email === '' || this.escola.email == null ||
+      this.escola.telefone === '' || this.escola.telefone == null || this.escola.codigoMec == null) {
+        return false;
+    } else {
+      return true;
+    }
   }
 
   cancel(): void {

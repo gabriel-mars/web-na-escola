@@ -1,1 +1,80 @@
-<p>update works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Editar Professor</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form>
+            <table class="form-professor" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>Nome</mat-label>
+                            <input type="text" matInput placeholder="Nome" [(ngModel)] = "userAux.nome" name="nome">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>Escola</mat-label>
+                            <mat-select [(ngModel)] = "escolaAux" name="escola" required>
+                              <mat-option *ngFor="let es of escolas" [value]="es">{{ es.nome }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>CPF</mat-label>
+                            <input matInput placeholder="CPF" [(ngModel)] = "userAux.cpf" mask="000.000.000-00" name="cpf">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="exemplo@mail.com" [(ngModel)] = "userAux.email" [(formControl)]="emailFormControl" name="email"/>
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Digite um e-mail válido
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Email é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput placeholder="Telefone" [(ngModel)] = "userAux.telefone" mask="(00) 00000-0000" name="telefone">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>Endereço</mat-label>
+                            <input matInput placeholder="Endereço" [(ngModel)] = "userAux.endereco" name="endereco">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>Município</mat-label>
+                            <input matInput placeholder="Município" [(ngModel)] = "userAux.municipio" name="municipio">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-professor">
+                            <mat-label>UF</mat-label>
+                            <input matInput placeholder="UF" [(ngModel)] = "userAux.uf" name="uf" maxlength="2">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="updateProfessor()" class="btn-update">Salvar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

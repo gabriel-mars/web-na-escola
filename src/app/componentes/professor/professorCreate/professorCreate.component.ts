@@ -62,13 +62,13 @@ export class ProfessorCreateComponent implements OnInit {
   }
 
   createProfessor(): void {
-    this.professor.usuario = this.userAux;
-    this.professor.usuario.tipoUsuario = TIPO_USUARIO.PROFESSOR;
-    this.professor.escola = this.escolaAux;
-
     this.formsOk = this.validateFields();
 
     if(this.formsOk) {
+      this.professor.usuario = this.userAux;
+      this.professor.usuario.tipoUsuario = TIPO_USUARIO.PROFESSOR;
+      this.professor.escola = this.escolaAux;
+
       this.user = JSON.parse(sessionStorage.getItem('usuario'));
       this.professorService.cadastrarProfessor(this.professor, this.user.hash).subscribe(() => {
         this.toastService.showMessage('Professor cadastrado!', true);
