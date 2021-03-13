@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import SimpleCrypto from "simple-crypto-js"
+// import SimpleCrypto from "simple-crypto-js"
+import * as Crypto from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -7,17 +8,21 @@ import SimpleCrypto from "simple-crypto-js"
 export class EncryptService {
 
   secretKey = "c4df63c68ae748b20d643e9b6de0a718";
-  simpleCrypto = new SimpleCrypto(this.secretKey);
 
   constructor() { }
 
   encrypt(json: string): string {
-    const cipher = this.simpleCrypto.encrypt(json);
-    return cipher;
+    return Crypto.AES.encrypt(json, this.secretKey.trim()).toString();
   }
 
   decrypt(obj: string): string {
-    const decipher = this.simpleCrypto.decrypt(obj);
-    return decipher.toString();
+    let dados = Crypto.AES.decrypt(obj, this.secretKey.trim()).toString(Crypto.enc.Utf8);
+    return this.clearData(dados);
+  }
+
+  clearData(obj: string): string {
+    obj = obj.replace(/[\\]/g, '');
+    // obj = obj.replace('""', '');
+    return obj;
   }
 }

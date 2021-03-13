@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     this.loginService.readByEmail(this.user).subscribe((aux) => {
       const newUser: User = aux;
-
+      
       this.loginService.fazerLogin(newUser);
       this.resourcesLoaded = true;
     });

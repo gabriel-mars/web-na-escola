@@ -60,7 +60,7 @@ export class ProfessorUpdateComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     // this.user = JSON.parse(sessionStorage.getItem('usuario'));
     const obj = sessionStorage.getItem('usuario');
-    this.user = JSON.parse(this.encryptService.decrypt(obj));
+    this.user = JSON.parse(JSON.stringify(this.encryptService.decrypt(obj)));
 
     this.professorService.readById(id, this.user.hash).subscribe(professor => {
       this.professor = professor;

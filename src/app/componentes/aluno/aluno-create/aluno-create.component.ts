@@ -79,7 +79,7 @@ export class AlunoCreateComponent implements OnInit {
 
   ngOnInit(): void {
     const obj = sessionStorage.getItem('usuario');
-    this.user = JSON.parse(this.encryptService.decrypt(obj));
+    this.user = JSON.parse(JSON.stringify(this.encryptService.decrypt(obj)));
 
     this.escolaService.read(this.user.hash).subscribe(escolas => {
       this.escolas = escolas;

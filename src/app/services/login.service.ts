@@ -53,7 +53,6 @@ export class LoginService {
 
     this.toastService.showMessage('Autenticado!', true);
 
-    // usuario.senha = '';
     const json = JSON.stringify(usuario);
     sessionStorage.setItem('usuario', this.encryptService.encrypt(json));
     this.router.navigate(['/home']);
@@ -62,10 +61,6 @@ export class LoginService {
   getPermissaoUsuario() {
     const obj = sessionStorage.getItem('usuario');
     this.aux = JSON.parse(this.encryptService.decrypt(obj));
-
-    // if(this.aux.isAdm == true) {
-    //   this.permissaoUsuario.next(true);
-    // }
 
     return this.permissaoUsuario.asObservable();
   }

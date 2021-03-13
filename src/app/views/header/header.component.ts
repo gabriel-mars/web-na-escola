@@ -24,7 +24,10 @@ export class HeaderComponent implements AfterViewInit {
   ngAfterViewInit() {
     // this.user = JSON.parse(sessionStorage.getItem('usuario'));
     const obj = sessionStorage.getItem('usuario');
-    this.user = JSON.parse(this.encryptService.decrypt(obj));
+    let dados = JSON.parse(JSON.stringify(this.encryptService.decrypt(obj)));
+    this.user = dados as User;
+    // console.log(json);
+    
     this.cd.detectChanges();
   }
 

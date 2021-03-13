@@ -45,7 +45,7 @@ export class CreateComponent implements OnInit {
     if(this.formsOk) {
       // this.user = JSON.parse(sessionStorage.getItem('usuario'));
       const obj = sessionStorage.getItem('usuario');
-      this.user = JSON.parse(this.encryptService.decrypt(obj));
+      this.user = JSON.parse(JSON.stringify(this.encryptService.decrypt(obj)));
 
       this.escolaService.cadastrarEscola(this.escola, this.user.hash).subscribe(() => {
         this.toastService.showMessage('Escola cadastrada!', true);

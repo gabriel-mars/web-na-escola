@@ -29,7 +29,7 @@ export class ReadComponent implements OnInit {
   ngOnInit(): void {
     // this.user = JSON.parse(sessionStorage.getItem('usuario'));
     const obj = sessionStorage.getItem('usuario');
-    this.user = JSON.parse(this.encryptService.decrypt(obj));
+    this.user = JSON.parse(JSON.stringify(this.encryptService.decrypt(obj)));
     
     this.escolaService.read(this.user.hash).subscribe(escolas => {
       this.dataSource = new MatTableDataSource(escolas);

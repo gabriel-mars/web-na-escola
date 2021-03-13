@@ -28,7 +28,7 @@ export class DeleteComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     // this.user = JSON.parse(sessionStorage.getItem('usuario'));
     const obj = sessionStorage.getItem('usuario');
-    this.user = JSON.parse(this.encryptService.decrypt(obj));
+    this.user = JSON.parse(JSON.stringify(this.encryptService.decrypt(obj)));
 
     this.escolaService.readById(id, this.user.hash).subscribe(escola => {
       this.escola = escola;
